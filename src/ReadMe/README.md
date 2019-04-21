@@ -4,6 +4,9 @@ VR-Viz provide a high-level react components to generate 3D visualization in web
 
 __GitHub Repo: [https://github.com/mustafasaifee42/vr-viz](https://github.com/mustafasaifee42/vr-viz)__
 
+__NPM Package: [https://www.npmjs.com/package/vr-viz](https://www.npmjs.com/package/vr-viz)__
+
+
 ## If using NPM
 
 Package link: [https://www.npmjs.com/package/vr-viz](https://www.npmjs.com/package/vr-viz)
