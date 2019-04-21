@@ -4,25 +4,41 @@ VR-Viz provide a high-level react components to generate 3D visualization in web
 
 __GitHub Repo: [https://github.com/mustafasaifee42/vr-viz](https://github.com/mustafasaifee42/vr-viz)__
 
-## Installation
+## If using NPM
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+Package link: [https://www.npmjs.com/package/vr-viz](https://www.npmjs.com/package/vr-viz)
 
-This project uses yarn. Install it as described here [https://yarnpkg.com/lang/en/](https://yarnpkg.com/lang/en/) if you haven't already.
+__Installation__
 
-To install this project, simply clone the repo and run yarn
+`npm install --save vr-viz`
 
-## Local Development
+__How To Use__
+
+First import this component where you want to use it
+
+`import VRViz from "vr-viz"`
+
+Then just renders it
+
+## Local Development Using this Repo
+
+To run this project using this repo, simply clone the repo and run yarn
+
+```
+git clone https://github.com/mustafasaifee42/VR-Viz.git
+cd vr-viz
+yarn
+```
+
 In the project directory, you can run:
 ```
 yarn start
 ```
 Runs the app in the development mode.
 
+## VRViz Component
 
-# Getting Started
-
-The react component used to generate visualizations is `Visualization` with 2 props:
+The react component used to generate visualizations is `VRViz` with 2 props:
 * __scene__
 * __graph__
 
@@ -32,7 +48,7 @@ __graph__ is the prop where the visualization is defined. Different visualizatio
 
 ## Example of Visualization Component
 ```
-<Visualization
+<VRViz
   scene={
     {
       'sky': {
@@ -67,6 +83,11 @@ __graph__ is the prop where the visualization is defined. Different visualizatio
           'width': 100,
           'depth': 100,
         }
+      },
+      'parentDiv':{
+        'class':'graph',
+        'height':1000,
+        'width':1000
       }
     }
   }
@@ -145,16 +166,22 @@ __Example__
       'width': 100,
       'depth': 100,
     }
+  },
+  'parentDiv':{
+    'class':'graph',
+    'height':1000,
+    'width':1000
   }
 }
 ```
 
-5 main features / properties of the scene objects are:
+6 main features / properties of the scene objects are:
 * sky
 * lights
 * camera
 * floor
 * 3D-objects
+* parentDiv _(optional)_
 
 #### sky
 Sky has property called `style` in which the visual properties of sky is defined.
@@ -213,13 +240,25 @@ Property|Type|Description
 objectFile|string|Path of the 3D object. __Required__
 id|string|ID of the 3D object which is later used to identify this object. There should not be any space or special character except _ and must not start with a number. __Required__
 
-### Graph Object
-Graph object help the developer to  define the visualization. Although different visualizations requires the developer to define different parameters, there are some features which are same for most or all visualization type. This is a mandatory prop in the component. The prop must be defined as an array which gives flexibility to add multiple visualizations in the same scene to either design a dashboard in VR (just by changing the position of their origin) or overlap multiple visualization on each other.
+#### parentDiv _(optional)_
+parentDiv defines the class and size of the div in which a-scene is embedded.
 
-Main features / properties of the scene objects are:
+__Properties for 3D-Object__
+
+Property|Type|Description
+---|---|---
+class|string|Defines the class name of the div in which a-scene is embedded. __Default value is aframeBox.__
+height|int|Defines the height of the div in which a-scene is embedded. __Default value is height of the window or browser.__
+width|int|Defines the height of the div in which a-scene is embedded. __Default value is width of the window or browser.__
+
+### Graph Object
+Graph object help the developer to define the visualization. Although different visualizations requires the developer to define different parameters, there are some features which are same for most or all visualization type. This is a mandatory prop in the component. The prop must be defined as an array which gives flexibility to add multiple visualizations in the same scene to either design a dashboard in VR (just by changing the position of their origin) or overlap multiple visualization on each other.
+
+Main features / properties of the graph objects are:
 * type
 * data
 * style
+* animateRotation __Optional__
 * mark
 * axis __Not required for all the types__
 
@@ -227,6 +266,7 @@ Main features / properties of the scene objects are:
 type is used to define what kind of visualization is needed. The availabe values for type are :
 * `BarGraph` for 3D Bar Graph
 * `StackedBarGraph` for 3D Stacked Bar Graph
+* `LollipopChart` for 3D Lollipop Chart
 * `RectangleChart` for 3D Rectangle Chart
 * `ScatterPlot` for 3D Scatter Plot / 3D Bubble Chat
 * `ConnectedScatterPlot` for 3D Connected Scatter Plot
@@ -244,7 +284,7 @@ type is used to define what kind of visualization is needed. The availabe values
 * `MapBarGraph` for 3D Map Bar Graph
 * `MapStackedBarGraph` for 3D Map Stacked Bar Graph
 * `MapTimeBars` for Time Series on Map
-* `MapContourLines` for 3D Map with Iso Line
+* `MapWithIsoLines` for 3D Map with Iso Line
 * `FlowMap` for 3D Flow Map
 * `TreeMap` for 3D TreeMap
 * `SpiralPlot` for 3D Spiral Plot
@@ -256,8 +296,8 @@ __Properties for Data__
 Property|Type|Description
 ---|---|---
 dataFile|string|Path to location where the data file is located. __Required for most visualization type except for _curve plot_, _surface plot_, _parametric curve plot_ and _parametric surface plot_.__
-fileType|string|Type of value. __Available values: `csv`, `json`, `ply`, `text`. Default value 'csv'.__ `csv` fletype must have header; `text` is used for csv without header.
-desc|array|Description of the header. __Required only if the `fileType` is csv.__ _Example: [['Year', 'date','YYYY'], ['Month', 'text'], ['Tornadoes', 'number'], ['Deaths', 'number']]_. If the data type for a particular header is date or time then the format is also required. Available formats can be seen [here](http://momentjs.com/docs/#/parsing/). _Moment.js is used to parse dates and time._
+fileType|string|Type of value. __Available values: `csv`, `json`, `ply`, `text`. If the value of fileType is not mentioned the dataFile is taken as a json variable.__ `csv` fletype must have header; `text` is used for csv without header.
+desc|array|Description of the header. __Required only if the `fileType` is csv.__ _Example: [['Year', 'date','YYYY'], ['geoJson', 'jsonObject'], ['Tornadoes', 'text'], ['Deaths', 'number']]_. If the data type for a particular header is date or time then the format is also required. Available formats can be seen [here](http://momentjs.com/docs/#/parsing/). _Moment.js is used to parse dates and time._
 
 #### style
 
@@ -268,6 +308,17 @@ Property|Type|Description
 origin|array of numbers|Defines the position where the origin of the graph is placed. __Required.__ _Example: [0,0,0]_
 rotation|string|Defines the rotation of the chart. __Not Required. Default value: '0 0 0'__ _Format example: '-90 0 0'_
 dimension|object|Defines the dimension of the graph. Keys in the object are `width`, `depth` and `height`. The value for all these keys are float type. __Required.__
+pivot|string|Defines the pivot point around which the graph can be rotated using `animateRotation`. __Not required. Default value: 0 0 0__ _Example: '0 0 0'_
+
+#### animateRotation _Optional_
+
+__Properties for animateRotation__
+
+Property|Type|Description
+---|---|---
+initialAngles|array of numbers|Defines the starting angel of the rotation animation for the graph. The array is [Angle of rotation around x axis, Angle of rotation around y axis, Angle of rotation around z axis]. __Required.__ _Example: [0,0,0]_
+finalAngles|array of numbers|Defines the ending angel of the rotation animation for the graph. The array is [Angle of rotation around x axis, Angle of rotation around y axis, Angle of rotation around z axis]. __Not Required. Default value: '0 0 0'__ _Example: [0,360,0]_
+duration|int|Defines the timeperiod of the animation. The value is in millisecond. __Required.__
 
 #### mark
 `mark` is used to define the style and encoding for graphics in different visualizations. Different visualizations have different `mark` properties and key. These are discussed further in the documentation of individual visualizations.
@@ -387,18 +438,10 @@ tick.color|string|Defined the color for ticks and text for tick for the axis. __
 tick.opacity|float|Defined the opacity for title for the axis. __Required.__ _Value must be between 0 and 1._
 tick.rotation|string| Defines the alignment of the text for ticks. __Not Required. Default value for x-axis: "-90 0 0". Default value for y-axis: "0 0 0". Default value for z-axis: "-90 0 0". Format is "0 0 0"__.
 tick.align|string| Defines the alignment of the text for ticks. __Not Required. Default value for x-axis: center. Default value for y-axis: right. Default value for z-axis: right.__. _Available values: left, center, right._
-grid|object|Defined the style of grid for the axis. __Not Required.__ _Currently this feature is not available._
-grid.color|string|Defined the color for grid for the axis. __Required.__ _Currently this feature is not available._
-grid.opacity|float|Defined the opacity for grid for the axis. __Required.__ _Value must be between 0 and 1. Currently this feature is not available._
-
+grid|object|Defined the style of grid for the axis. __Not Required.__
+grid.color|string|Defined the color for grid for the axis. __Required.__
+grid.opacity|float|Defined the opacity for grid for the axis. __Required.__ _Value must be between 0 and 1._
 
 ## To Do
-
 * Add Legends
-* Add interactivity using [A-Frame Super Hand Controls](https://github.com/wmurphyrd/aframe-super-hands-component)
 * Add collaboration using [A-Frame Networked](https://haydenlee.io/networked-aframe/)
-
-
-## Known Issues
-* Grid in the axes doesnt work right now
-* Titles of the axes doesnt work right now
