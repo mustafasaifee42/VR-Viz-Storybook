@@ -8,9 +8,9 @@ import { withStorySource } from '@storybook/addon-storysource'
 import { Button, Welcome } from '@storybook/react/demo';
 import { withReadme, withDocs } from 'storybook-readme';
 
-import Visualization from '../Component/Visualization.js'
-import mapData from '../mapData/mapData.json'
-import sfMapData from '../mapData/sfMapData.json'
+import VRViz from 'vr-viz';
+import mapData from '../mapData/mapData.json';
+import sfMapData from '../mapData/sfMapData.json';
 import JSXAddon from 'storybook-addon-jsx';
 import BarGraph from '../ReadMe/BarGraph.md';
 import StackedBarGraph from '../ReadMe/StackedBarGraph.md';
@@ -54,7 +54,7 @@ storiesOf('VR-Viz', module)
   ))
 storiesOf('BarChart', module)
   .addWithJSX('Box BarChart', withReadme(BarGraph, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -199,7 +199,7 @@ storiesOf('BarChart', module)
     />
   ))
   .addWithJSX('Box BarChart With Hover', withReadme(BarGraph, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -363,7 +363,7 @@ storiesOf('BarChart', module)
     />
   ))
   .addWithJSX('Cone BarChart', withReadme(BarGraph, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -508,7 +508,7 @@ storiesOf('BarChart', module)
     />
   ))
   .addWithJSX('Cylinder BarChart', withReadme(BarGraph, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -653,7 +653,7 @@ storiesOf('BarChart', module)
     />
   ))
   .addWithJSX('Stacked BarChart', withReadme(StackedBarGraph, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -799,7 +799,7 @@ storiesOf('BarChart', module)
 
 storiesOf('Scatter Plot', module)
   .addWithJSX('Scatter Plot With Hover', withReadme(ScatterPlot, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -887,9 +887,9 @@ storiesOf('Scatter Plot', module)
                 'label': {
                   'value': (d) => `Sepal Length:${d.sepal_length}\nSepal Width:${d.sepal_width}\nPetal Length:${d.petal_length}\nPetal Width:${d.petal_width}\nSpecies:${d.species}`,
                   'align': 'center',
-                  'width': 0.5,
+                  'width': 1,
                   'height': 0.35,
-                  'wrapCount': 100,
+                  'wrapCount': 50,
                   'lineHeight': 75,
                   'backgroundColor': '#fff',
                   'backgroundOpacity': 0.9,
@@ -1000,7 +1000,7 @@ storiesOf('Scatter Plot', module)
     />
   ))
   .addWithJSX('Scatter Plot with Projections', withReadme(ScatterPlot, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -1035,7 +1035,7 @@ storiesOf('Scatter Plot', module)
           {
             'type': 'ScatterPlot',
             'style': {
-              'origin': [0, 0, 0],
+              'origin': [10, 0, 0],
               'dimensions': {
                 'width': 10,
                 'height': 10,
@@ -1183,7 +1183,7 @@ storiesOf('Scatter Plot', module)
     />
   ))
   .addWithJSX('Scatter Plot with Droplines', withReadme(ScatterPlot, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -1367,7 +1367,7 @@ storiesOf('Scatter Plot', module)
 
 storiesOf('Maps', module)
   .addWithJSX('Prism Map', withReadme(PrismMap, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -1441,7 +1441,7 @@ storiesOf('Maps', module)
     />
   ))
   .addWithJSX('Flow Map', withReadme(FlowMap, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -1549,7 +1549,7 @@ storiesOf('Maps', module)
     />
   ))
   .addWithJSX('Map With IsoLine (Contour Lines)', withReadme(MapWithIsoLines, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -1638,7 +1638,7 @@ storiesOf('Maps', module)
     />
   ))
   .addWithJSX('Map With Time Bars', withReadme(MapTimeBars, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -1738,7 +1738,7 @@ storiesOf('Maps', module)
     />
   ))
   .addWithJSX('Regional Map with Bars', withReadme(MapBarChart, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -1828,7 +1828,7 @@ storiesOf('Maps', module)
     />
   ))
   .addWithJSX('World Map with Bars', withReadme(MapBarChart, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -1918,7 +1918,7 @@ storiesOf('Maps', module)
     />
   ))
   .addWithJSX('World Map with Stacked Bars', withReadme(MapStackedBarChart, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -2012,7 +2012,7 @@ storiesOf('Maps', module)
 
 storiesOf('Surface Plot', module)
   .addWithJSX('Surface Plot With Mesh', withReadme(SurfacePlot, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -2152,7 +2152,7 @@ storiesOf('Surface Plot', module)
     />
   ))
   .addWithJSX('Surface Plot Only Mesh', withReadme(SurfacePlot, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -2292,7 +2292,7 @@ storiesOf('Surface Plot', module)
     />
   ))
   .addWithJSX('Surface Plot Only Surface', withReadme(SurfacePlot, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -2428,7 +2428,7 @@ storiesOf('Surface Plot', module)
     />
   ))
   .addWithJSX('Parametric Surface Plot', withReadme(ParametricSurfacePlot, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -2519,7 +2519,7 @@ storiesOf('Surface Plot', module)
 
 storiesOf('Curve Plot', module)
   .addWithJSX('Curve Plot', withReadme(ContourPlot, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -2651,7 +2651,7 @@ storiesOf('Curve Plot', module)
     />
   ))
   .addWithJSX('Parametric Curve Plot', withReadme(ParametricCurvePlot, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -2787,7 +2787,7 @@ storiesOf('Curve Plot', module)
 
 storiesOf('Contour Map', module)
   .addWithJSX('Contour Map', withReadme(ContourMap, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -2853,7 +2853,7 @@ storiesOf('Contour Map', module)
     />
   ))
   .addWithJSX('Contour Map Without Mesh', withReadme(ContourMap, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -2917,7 +2917,7 @@ storiesOf('Contour Map', module)
 
 storiesOf('Network Graph', module)
   .addWithJSX('Force Directed Graph', withReadme(ForceDirectedGraph, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -3003,7 +3003,7 @@ storiesOf('Network Graph', module)
 
 storiesOf('Mesh Plot', module)
   .addWithJSX('Mesh Plot', withReadme(MeshPlot, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -3147,7 +3147,7 @@ storiesOf('Mesh Plot', module)
 
 storiesOf('WaterFall Plot', module)
   .addWithJSX('WaterFall Plot', withReadme(WaterFallPlot, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -3287,7 +3287,7 @@ storiesOf('WaterFall Plot', module)
     />
   ))
   .addWithJSX('WaterFall Plot Only Line', withReadme(WaterFallPlot, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -3429,7 +3429,7 @@ storiesOf('WaterFall Plot', module)
 
 storiesOf('Rectangle Chart', module)
   .addWithJSX('Rectangle Chart', withReadme(RectangleChart, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -3594,7 +3594,7 @@ storiesOf('Rectangle Chart', module)
 
 storiesOf('Point Cloud', module)
   .addWithJSX('Point Cloud', withReadme(PointCloud, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -3655,7 +3655,7 @@ storiesOf('Point Cloud', module)
 
 storiesOf('Connected Scatter Plot', module)
   .addWithJSX('Connected Scatter Plot', withReadme(ConnectedScatterPlot, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -3834,7 +3834,7 @@ storiesOf('Connected Scatter Plot', module)
 
 storiesOf('TreeMap', module)
   .addWithJSX('TreeMap', withReadme(TreeMap, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -3904,7 +3904,7 @@ storiesOf('TreeMap', module)
 
 storiesOf('TimeSeries', module)
   .addWithJSX('TimeSeries', withReadme(TimeSeries, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -4049,7 +4049,7 @@ storiesOf('TimeSeries', module)
 
 storiesOf('3D Radar Chart', module)
   .addWithJSX('Helsinki Monthly Average Temperature', withReadme(SpiralPlot, () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
@@ -4192,7 +4192,7 @@ storiesOf('3D Radar Chart', module)
 
 storiesOf('DashBoard', module)
   .addWithJSX('Dashboard with multiple graphs', () =>
-    <Visualization
+    <VRViz
       scene={
         {
           'sky': {
