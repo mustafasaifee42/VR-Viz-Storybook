@@ -6,6 +6,7 @@ __GitHub Repo: [https://github.com/mustafasaifee42/vr-viz](https://github.com/mu
 
 __NPM Package: [https://www.npmjs.com/package/vr-viz](https://www.npmjs.com/package/vr-viz)__
 
+__BoilerPlate: [https://github.com/mustafasaifee42/vr-viz-boilerplate](https://github.com/mustafasaifee42/vr-viz-boilerplate)__
 
 ## If using NPM
 
