@@ -82,6 +82,7 @@ storiesOf('BarChart', module)
             'position': '10 0 20',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -227,6 +228,7 @@ storiesOf('BarChart', module)
             'position': '10 0 20',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -391,6 +393,7 @@ storiesOf('BarChart', module)
             'position': '10 0 20',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -536,6 +539,7 @@ storiesOf('BarChart', module)
             'position': '10 0 20',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -681,6 +685,7 @@ storiesOf('BarChart', module)
             'position': '10 5 25',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -827,6 +832,7 @@ storiesOf('Scatter Plot', module)
             'position': '5 5 15',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -1028,6 +1034,7 @@ storiesOf('Scatter Plot', module)
             'position': '5 5 15',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -1211,6 +1218,7 @@ storiesOf('Scatter Plot', module)
             'position': '5 5 15',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -1395,6 +1403,7 @@ storiesOf('Maps', module)
             'position': '5 5 20',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -1469,6 +1478,7 @@ storiesOf('Maps', module)
             'position': '5 5 20',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -1577,6 +1587,7 @@ storiesOf('Maps', module)
             'position': '0 0 0',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -1666,6 +1677,7 @@ storiesOf('Maps', module)
             'position': '0 0 0',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -1766,6 +1778,7 @@ storiesOf('Maps', module)
             'position': '0 0 0',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -1856,6 +1869,7 @@ storiesOf('Maps', module)
             'position': '5 5 20',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -1946,6 +1960,7 @@ storiesOf('Maps', module)
             'position': '5 5 20',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -2040,6 +2055,7 @@ storiesOf('Surface Plot', module)
             'position': '5 3 10',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -2180,6 +2196,7 @@ storiesOf('Surface Plot', module)
             'position': '5 3 10',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -2320,6 +2337,7 @@ storiesOf('Surface Plot', module)
             'position': '5 3 10',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -2456,6 +2474,7 @@ storiesOf('Surface Plot', module)
             'position': '0 0 0',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -2547,6 +2566,7 @@ storiesOf('Curve Plot', module)
             'position': '0 0 10',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -2679,6 +2699,7 @@ storiesOf('Curve Plot', module)
             'position': '0 0 10',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -2815,6 +2836,7 @@ storiesOf('Contour Map', module)
             'position': '0 0 10',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -2881,6 +2903,7 @@ storiesOf('Contour Map', module)
             'position': '0 0 10',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -2945,6 +2968,7 @@ storiesOf('Network Graph', module)
             'position': '0 5 10',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -3031,6 +3055,7 @@ storiesOf('Mesh Plot', module)
             'position': '10 5 12',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -3175,6 +3200,7 @@ storiesOf('WaterFall Plot', module)
             'position': '10 5 12',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -3315,6 +3341,7 @@ storiesOf('WaterFall Plot', module)
             'position': '10 5 12',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -3457,6 +3484,7 @@ storiesOf('Rectangle Chart', module)
             'position': '5 5 12',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -3622,6 +3650,7 @@ storiesOf('Point Cloud', module)
             'position': '8 5 12',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -3683,6 +3712,7 @@ storiesOf('Connected Scatter Plot', module)
             'position': '10 3 15',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -3862,6 +3892,7 @@ storiesOf('TreeMap', module)
             'position': '0 10 40',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -3932,6 +3963,7 @@ storiesOf('TimeSeries', module)
             'position': '5 5 12',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -4077,6 +4109,7 @@ storiesOf('3D Radar Chart', module)
             'position': '0 0 12',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={
@@ -4220,6 +4253,7 @@ storiesOf('DashBoard', module)
             'position': '10.5 5.5 11',
             'rotation': '0 0 0',
           },
+          'reloadPageOnExitVR':true
         }
       }
       graph={

@@ -184,8 +184,9 @@ __Example__
 * lights
 * camera
 * floor
-* 3D-objects
+* 3D-objects _(optional)_
 * parentDiv _(optional)_
+* reloadPageOnExitVR _(optional)_
 
 #### sky
 Sky has property called `style` in which the visual properties of sky is defined.
@@ -247,13 +248,17 @@ id|string|ID of the 3D object which is later used to identify this object. There
 #### parentDiv _(optional)_
 parentDiv defines the class and size of the div in which a-scene is embedded.
 
-__Properties for 3D-Object__
+__Properties for parentDiv__
 
 Property|Type|Description
 ---|---|---
 class|string|Defines the class name of the div in which a-scene is embedded. __Default value is aframeBox.__
 height|int|Defines the height of the div in which a-scene is embedded. __Default value is height of the window or browser.__
 width|int|Defines the height of the div in which a-scene is embedded. __Default value is width of the window or browser.__
+
+#### reloadPageOnExitVR _(optional)_
+
+Defines if the user wants to reload the page when exiting VR mode. Is useful when there are multiple `a-scene` in the same page. __Not Required. Default value: false. Format:''reloadPageOnExitVR':true__
 
 ### Graph Object
 Graph object help the developer to define the visualization. Although different visualizations requires the developer to define different parameters, there are some features which are same for most or all visualization type. This is a mandatory prop in the component. The prop must be defined as an array which gives flexibility to add multiple visualizations in the same scene to either design a dashboard in VR (just by changing the position of their origin) or overlap multiple visualization on each other.
