@@ -27,3 +27,6 @@ In the project directory, you can run:
 
 Runs the storybook in the development mode.<br>
 Open [http://localhost:9009](http://localhost:9009) to view it in the browser.
+
+## Known Issues
+* When using VR-Headset the page needs to be reloaded whenever VR-Mode is exited
