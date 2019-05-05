@@ -3223,15 +3223,15 @@ storiesOf('WaterFall Plot', module)
             'mark': {
               'position': {
                 'x': {
-                  'scaleType': 'linear',
-                  'field': 'x',
+                  'scaleType': 'ordinal',
+                  'domain': ['-3', '-2.8', '-2.6', '-2.4', '-2.2', '-2.0', '-1.8', '-1.6', '-1.4', '-1.2', '-1.0', '-0.8', '-0.6', '-0.4', '-0.2', '0.0', '0.2', '0.4', '0.6', '0.8', '1.0', '1.2', '1.4', '1.6', '1.8', '2.0', '2.2', '2.4', '2.6', '2.8']
                 },
                 'y': {
                   'scaleType': 'linear',
                 },
                 'z': {
                   'scaleType': 'ordinal',
-                  'field': ['-3', '-2.8', '-2.6', '-2.4', '-2.2', '-2.0', '-1.8', '-1.6', '-1.4', '-1.2', '-1.0', '-0.8', '-0.6', '-0.4', '-0.2', '0.0', '0.2', '0.4', '0.6', '0.8', '1.0', '1.2', '1.4', '1.6', '1.8', '2.0', '2.2', '2.4', '2.6', '2.8']
+                  'field': 'x',
                 }
               },
               'style': {
@@ -3240,9 +3240,8 @@ storiesOf('WaterFall Plot', module)
                   'width': 1,
                 },
                 'fill': {
-                  'color': ['#b71c1c', '#2196f3'],
-                  'scaleType': 'linear',
-                  'opacity': 0.8,
+                  'color': '#b71c1c',
+                  'opacity': 0.1,
                 }
               }
             },
@@ -3364,26 +3363,21 @@ storiesOf('WaterFall Plot', module)
             'mark': {
               'position': {
                 'x': {
-                  'scaleType': 'linear',
-                  'field': 'x',
+                  'scaleType': 'ordinal',
+                  'domain': ['-3', '-2.8', '-2.6', '-2.4', '-2.2', '-2.0', '-1.8', '-1.6', '-1.4', '-1.2', '-1.0', '-0.8', '-0.6', '-0.4', '-0.2', '0.0', '0.2', '0.4', '0.6', '0.8', '1.0', '1.2', '1.4', '1.6', '1.8', '2.0', '2.2', '2.4', '2.6', '2.8']
                 },
                 'y': {
                   'scaleType': 'linear',
                 },
                 'z': {
                   'scaleType': 'ordinal',
-                  'field': ['-3', '-2.8', '-2.6', '-2.4', '-2.2', '-2.0', '-1.8', '-1.6', '-1.4', '-1.2', '-1.0', '-0.8', '-0.6', '-0.4', '-0.2', '0.0', '0.2', '0.4', '0.6', '0.8', '1.0', '1.2', '1.4', '1.6', '1.8', '2.0', '2.2', '2.4', '2.6', '2.8']
+                  'field': 'x',
                 }
               },
               'style': {
                 'stroke': {
-                  'color': ['#b71c1c', '#2196f3'],
-                  'scaleType': 'linear',
-                  'width': 2,
-                },
-                'fill': {
-                  'color': '#2196f3',
-                  'opacity': 0,
+                  'color': '#b71c1c',
+                  'width': 4,
                 }
               }
             },
@@ -3402,10 +3396,6 @@ storiesOf('WaterFall Plot', module)
                   'color': 'white',
                   'opacity': 0.7,
                   'fontSize': 3,
-                },
-                'grid': {
-                  'color': 'white',
-                  'opacity': 0.7,
                 }
               },
               'y-axis': {
@@ -3422,10 +3412,6 @@ storiesOf('WaterFall Plot', module)
                   'color': 'white',
                   'opacity': 0.7,
                   'fontSize': 3,
-                },
-                'grid': {
-                  'color': 'white',
-                  'opacity': 0.7,
                 }
               },
               'z-axis': {
@@ -3441,10 +3427,6 @@ storiesOf('WaterFall Plot', module)
                   'color': 'white',
                   'opacity': 0.7,
                   'fontSize': 3,
-                },
-                'grid': {
-                  'color': 'white',
-                  'opacity': 0.7,
                 }
               }
             }
