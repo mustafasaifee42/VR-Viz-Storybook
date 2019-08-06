@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 
 import { setAddon, storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -39,6 +40,11 @@ import SpiralPlot from '../ReadMe/SpiralPlot.md';
 import README from '../ReadMe/README.md';
 import coverImg from "../imgs/CoverImage.png";
 setAddon(JSXAddon);
+
+
+ReactGA.initialize('UA-145184614-1');
+ReactGA.set({ anonymizeIp: true });
+ReactGA.pageview('/');
 
 const cover = {
   width: "100%",
