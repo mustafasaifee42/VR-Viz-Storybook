@@ -92,7 +92,8 @@ __graph__ is the prop where the visualization is defined. Different visualizatio
         'class':'graph',
         'height':1000,
         'width':1000
-      }
+      },
+      'reloadPageOnExitVR':true
     }
   }
   graph={
@@ -175,7 +176,8 @@ __Example__
     'class':'graph',
     'height':1000,
     'width':1000
-  }
+  },
+  'reloadPageOnExitVR':true
 }
 ```
 
@@ -267,9 +269,10 @@ Main features / properties of the graph objects are:
 * type
 * data
 * style
-* animateRotation __Optional__
 * mark
 * axis __Not required for all the types__
+* title __Not Required__
+* animateRotation __Not Required__
 
 #### type
 type is used to define what kind of visualization is needed. The availabe values for type are :
@@ -279,6 +282,7 @@ type is used to define what kind of visualization is needed. The availabe values
 * `RectangleChart` for 3D Rectangle Chart
 * `ScatterPlot` for 3D Scatter Plot / 3D Bubble Chat
 * `ConnectedScatterPlot` for 3D Connected Scatter Plot
+* `CrossSectionView` for 3D Cross Sectional View or 3D Models
 * `MeshPlot` for 3D Mesh Plot
 * `WaterFallPlot` for Waterfall Plot
 * `TimeSeries` for 3D Time Series
@@ -317,17 +321,9 @@ Property|Type|Description
 origin|array of numbers|Defines the position where the origin of the graph is placed. __Required.__ _Example: [0,0,0]_
 rotation|string|Defines the rotation of the chart. __Not Required. Default value: '0 0 0'__ _Format example: '-90 0 0'_
 dimension|object|Defines the dimension of the graph. Keys in the object are `width`, `depth` and `height`. The value for all these keys are float type. __Required.__
-pivot|string|Defines the pivot point around which the graph can be rotated using `animateRotation`. __Not required. Default value: 0 0 0__ _Example: '0 0 0'_
-
-#### animateRotation _Optional_
-
-__Properties for animateRotation__
-
-Property|Type|Description
----|---|---
-initialAngles|array of numbers|Defines the starting angel of the rotation animation for the graph. The array is [Angle of rotation around x axis, Angle of rotation around y axis, Angle of rotation around z axis]. __Required.__ _Example: [0,0,0]_
-finalAngles|array of numbers|Defines the ending angel of the rotation animation for the graph. The array is [Angle of rotation around x axis, Angle of rotation around y axis, Angle of rotation around z axis]. __Not Required. Default value: '0 0 0'__ _Example: [0,360,0]_
-duration|int|Defines the timeperiod of the animation. The value is in millisecond. __Required.__
+xPivot|number|Defines the pivot point on x axis around which the graph can be rotated using `animateRotation` or on mouse drag. __Not required. Default value is the center point of the grsph__
+yPivot|number|Defines the pivot point on y axis around which the graph can be rotated using `animateRotation` or on mouse drag. __Not required. Default value is the center point of the grsph__
+zPivot|number|Defines the pivot point on z axis around which the graph can be rotated using `animateRotation` or on mouse drag. __Not required. Default value is the center point of the grsph__
 
 #### mark
 `mark` is used to define the style and encoding for graphics in different visualizations. Different visualizations have different `mark` properties and key. These are discussed further in the documentation of individual visualizations.
@@ -434,11 +430,12 @@ __Properties for x-axis, y-axis, z-axis__
 Property|Type|Description
 ---|---|---
 orient|string|Defines where the ticks are displayed. __Not Required. Default value for x-axis: front-top. Default value for x-axis: front-left. Default value for x-axis: bottom-left.__. _Available values for x-axis: front-top, back-bottom, back-top or front-bottom. Available values for y-axis: front-left, back-left, front-right or back-right. Available values for z-axis: bottom-left, top-left, top-right or bottom-right._
-title|object|Defined the style of title for the axis. __Not Required.__ _Currently this feature is not available._
-title.text|string|Defined the text for title for the axis. __Required.__ _Currently this feature is not available._
-title.fontSize|int|Defined the font size for title for the axis. __Required.__ _Currently this feature is not available._
-title.color|string|Defined the color for title for the axis. __Required.__ _Currently this feature is not available._
+title|object|Defined the style of title for the axis. __Not Required.__
+title.text|string|Defined the text for title for the axis. __Required.__
+title.fontSize|int|Defined the font size for title for the axis. __Required.__
+title.color|string|Defined the color for title for the axis. __Required.__
 title.opacity|float|Defined the opacity for title for the axis. __Required.__ _Value must be between 0 and 1. Currently this feature is not available._
+title.billboarding|bool|Defines if the text always face the camera. __Not Required. Default value:false.__ _If the value is change to true `title.rotation` is ignored._
 tick|object|Defined the ticks for the axis. __Required.__
 tick.noOfTicks|int|Defined the no. of tick for the axis. __Required.__ _No. of ticks are only applicable for `linear` scale._
 tick.size|float|Defined the font size for ticks for the axis. __Required.__ 
@@ -446,11 +443,54 @@ tick.fontSize|int|Defined the font size for text for tick for the axis. __Requir
 tick.color|string|Defined the color for ticks and text for tick for the axis. __Required.__ 
 tick.opacity|float|Defined the opacity for title for the axis. __Required.__ _Value must be between 0 and 1._
 tick.rotation|string| Defines the alignment of the text for ticks. __Not Required. Default value for x-axis: "-90 0 0". Default value for y-axis: "0 0 0". Default value for z-axis: "-90 0 0". Format is "0 0 0"__.
-tick.align|string| Defines the alignment of the text for ticks. __Not Required. Default value for x-axis: center. Default value for y-axis: right. Default value for z-axis: right.__. _Available values: left, center, right._
+tick.align|string| Defines the alignment of the text for ticks. __Not Required. Default value for x-axis: center. Default value for y-axis: right. Default value for z-axis: right.__ _Available values: left, center, right._
+tick.billboarding|bool|Defines if the text always face the camera. __Not Required. Default value:false.__ _If the value is change to true `tick.rotation` is ignored._
 grid|object|Defined the style of grid for the axis. __Not Required.__
 grid.color|string|Defined the color for grid for the axis. __Required.__
 grid.opacity|float|Defined the opacity for grid for the axis. __Required.__ _Value must be between 0 and 1._
 
+#### title __Not Required__
+This defines the title of the graph
+
+__Properties for title__
+
+Property|Type|Description
+---|---|---
+title|object|Defines the value and style of the graph title. __Not Required.__ _If not present the label is not shown._
+title.value|function|Returns the value of the text that is to be shown in the label. __Required.__ _\n can be used for new line._
+title.align|string|Defines the alignment of the text in the graph title. __Required.__ _Available values: center, left or right._
+title.color|string|Defines the color of the text in the graph title. __Required.__
+title.lineHeight|float|Defines the line height of the text in the graph title. __Not Required.__
+title.wrapCount|int|Defines the wrap count of the text in the graph title. __Not Required.__
+title.position|string|Defines the position of the graph title. __Required. Format is "0 0 0".__
+title.rotation|string|Defines the rotation of the graph title. __Not Required. Format is "90 0 0".__
+title.width|float|Defines the width of the graph title. __Not Required.__
+title.billboarding|bool|Defines if the text always face the camera. __Not Required. Default value:false.__ _If the value is change to true `title.rotation` is ignored._
+
+#### animateRotation __Not Required__
+This is use to define the rotation animation of the graph for viewing it in different perspective. _If animateRotation is present the roation of graph on mouse drag is ignored._
+
+__Properties for animateRotation__
+
+Property|Type|Description
+---|---|---
+initialAngles|string|Defines the starting angel (in degrees) of the rotation animation for the graph.  __Required.__ _Example: "0 0 0"_
+finalAngles|string|Defines the ending angel (in degrees) of the rotation animation for the graph.  __Required.__ _Example: "0 360 0"_
+duration|int|Defines the timeperiod of the animation. The value is in millisecond. __Required.__
+
 ## To Do
 * Add Legends
 * Add collaboration using [A-Frame Networked](https://haydenlee.io/networked-aframe/)
+* Add vase plot and map vase plot
+
+## Known Issues
+* Multiple a-frame screens cannot be embedded in the same page [(https://github.com/aframevr/aframe/issues/916)](https://github.com/aframevr/aframe/issues/916)
+* Ticks in Spiral chart is not working
+* Holes in the maps don't work (for example Lesotho in South Africa)
+* ~~Grid in the axes doesnt work right now~~
+* ~~Titles of the axes doesnt work right now~~
+
+
+## Privacy Policy of the Website
+
+This website does not save any information about you. We do not directly use cookies or other tracking technologies. We do, however, use [Google Analytics](https://www.google.com/analytic) for mere statistical reasons. It is possible that [Google Analytics](https://www.google.com/analytics) sets cookies or uses other tracking technologies, but this data is not directly accessible by us. This page is hosted on [Netlify](https://netlify.com).
