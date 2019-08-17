@@ -24,6 +24,7 @@ import MapStackedBarChart from '../ReadMe/MapStackedBarChart.md';
 import MapWithIsoLines from '../ReadMe/MapWithIsoLines.md';
 import SurfacePlot from '../ReadMe/SurfacePlot.md';
 import ParametricSurfacePlot from '../ReadMe/ParametricSurfacePlot.md';
+import LollipopChart from '../ReadMe/LollipopChart.md';
 import ContourPlot from '../ReadMe/ContourPlot.md';
 import ParametricCurvePlot from '../ReadMe/ParametricCurvePlot.md';
 import ContourMap from '../ReadMe/ContourMap.md';
@@ -1380,6 +1381,169 @@ storiesOf('Scatter Plot', module)
     />
   ))
 
+  storiesOf('Lollipop Chart', module)
+    .addWithJSX('Lollipop Chart', withReadme(LollipopChart, () =>
+      <VRViz
+        scene={
+          {
+            'sky': {
+              'style': {
+                'color': '#333',
+                'texture': false,
+              }
+            },
+            'lights': [
+              {
+                'type': 'directional',
+                'color': '#fff',
+                'position': '0 1 1',
+                'intensity': 1,
+                "decay": 1,
+              },
+              {
+                'type': 'ambient',
+                'color': '#fff',
+                'intensity': 1,
+                "decay": 1,
+              }
+            ],
+            'camera': {
+              'position': '5 5 20',
+              'rotation': '0 0 0',
+            },
+            'reloadPageOnExitVR':true
+          }
+        }
+        graph={
+          [
+            {
+              'type': 'LollipopChart',
+              'data': {
+                'dataFile': "data/barGraph.csv",
+                'fileType': 'csv',
+                'fieldDesc': [['Year', 'text'], ['Month', 'text'], ['Tornadoes', 'number'], ['Deaths', 'number']]
+              },
+              'style': {
+                'origin': [0, 0, 0],
+                'dimensions': {
+                  'width': 10,
+                  'height': 10,
+                  'depth': 10,
+                },
+              },
+              'mark': {
+                'type': 'box',
+                'position': {
+                  'y': {
+                    'scaleType': 'linear',
+                    'startFromZero': true,
+                    'field': 'Tornadoes',
+                  },
+                  'x': {
+                    'scaleType': 'ordinal',
+                    'field': 'Month',
+                    'domain': ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                  },
+                  'z': {
+                    'scaleType': 'ordinal',
+                    'field': 'Year',
+                  }
+                },
+                'style': {
+                  'padding': {
+                    'x': 0.1,
+                    'z': 0.1,
+                  },
+                  'radius': {
+                    'value':0.1,
+                  },
+                  'fill': {
+                    'opacity': 0.8,
+                    'scaleType': 'linear',
+                    'field': 'Deaths',
+                    'color': ['red', 'green'],
+                  },
+                },
+                'droplines': {
+                  'style': {
+                    'radius':0.01,
+                    'fill': {
+                      'opacity': 0.8,
+                      'scaleType': 'linear',
+                      'field': 'Deaths',
+                      'color': ['red', 'green'],
+                    },
+                  }
+                }
+              },
+              'axis': {
+                'x-axis': {
+                  'orient': 'back-bottom',
+                  'title': {
+                    'text': '',
+                    'fontSize': 10,
+                    'color': 'white',
+                    'opacity': 0.7,
+                  },
+                  'ticks': {
+                    'noOfTicks': 10,
+                    'size': 0.1,
+                    'color': 'white',
+                    'opacity': 0.7,
+                    'fontSize': 1,
+                  },
+                  'grid': {
+                    'color': 'white',
+                    'opacity': 0.7,
+                  }
+                },
+                'y-axis': {
+                  'orient': 'back-left',
+                  'title': {
+                    'text': '',
+                    'fontSize': 10,
+                    'color': 'white',
+                    'opacity': 0.7,
+                  },
+                  'ticks': {
+                    'noOfTicks': 10,
+                    'size': 0.1,
+                    'color': 'white',
+                    'opacity': 0.7,
+                    'fontSize': 1,
+                  },
+                  'grid': {
+                    'color': 'white',
+                    'opacity': 0.7,
+                  }
+                },
+                'z-axis': {
+                  'orient': 'bottom-left',
+                  'title': {
+                    'text': '',
+                    'fontSize': 10,
+                    'color': 'white',
+                    'opacity': 0.7,
+                  },
+                  'ticks': {
+                    'noOfTicks': 10,
+                    'size': 0.1,
+                    'color': 'white',
+                    'opacity': 0.7,
+                    'fontSize': 1,
+                  },
+                  'grid': {
+                    'color': 'white',
+                    'opacity': 0.7,
+                  }
+                }
+              }
+            }
+          ]
+        }
+      />
+    ))
+
 storiesOf('Maps', module)
   .addWithJSX('Prism Map', withReadme(PrismMap, () =>
     <VRViz
@@ -1525,9 +1689,7 @@ storiesOf('Maps', module)
               },
               'flowlines': {
                 'style': {
-                  'opacity': {
-                    'value': 0.4,
-                  },
+                  'opacity': 0.4,
                   'stroke': {
                     'color': '#2196f3',
                   },
